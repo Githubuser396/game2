@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You ready?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #game {
+            margin: auto;
+            width: 300px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div id="game">
+        <h1>Let's go</h1>
+        <p id="clue">a,e,i,o,u what is it ? - ko 1st word<br><br>
+            it likes eating chilly, it's green in color. - ko 1st word<br><br>
+            1st question ko 3rd word<br><br>
+            convert banana to english. - ko 1st word<br><br>
+            🙂 what is this? - ko 1st word</p>
+        <input type="text" id="guess" placeholder="Enter your ans here">
+        <button onclick="checkGuess()">Let's see</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        // Define the sentence to be guessed and the clue
+        const sentence = "voice";
+        
+        // Function to check the player's guess
+        function checkGuess() {
+            // Get the player's guess from the input field
+            const guess = document.getElementById('guess').value.trim().toLowerCase();
+            
+            // Get the result paragraph to display the result
+            const result = document.getElementById('result');
+            
+            // Check if the guess matches the predefined sentence
+            if (guess === sentence.toLowerCase()) {
+                result.textContent = "Congratulations!";
+                result.style.color = "green";
+            } else {
+                result.textContent = "Incorrect";
+                result.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>
